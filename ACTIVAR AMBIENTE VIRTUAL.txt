@@ -1,0 +1,69 @@
+1-ENTRAR EN C:\MUNCIPALIDAD
+
+2-   EJECUTAR
+		.\venv\Scripts\activate.bat
+
+este comando hace que se active el ambiete virtual
+
+
+ACTIVAR EL SERVIDOR
+3-En una segunda  terminal entrar también a C:\MUNCIPALIDAD  , ya cuando esté activado el entorno virtual ejecutar el servidor
+	Activar también el ambiente virtual .\venv\Scripts\activate.bat
+
+	Una vez activado el ambiente virtual, entonces activar el servidor
+
+	rasa run -m models --enable-api --cors "*" --debug
+
+dejar la terminal abierta, ejecutando el servidor
+
+
+
+4-file:///C:/municipalidad/web/index.HTML
+
+****Nota importante:  
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+TESTEAR EFICACIA DE LAS PREGUNTAS
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Paso 1: Detener los servidores de Rasa (si aún están corriendo)
+Ve a la terminal donde tienes rasa run actions y presiona Ctrl + C.
+
+Ve a la terminal donde tienes rasa run ... y presiona Ctrl + C.
+
+
+Paso 2: Probar la comprensión NLU del bot con las nuevas frases
+Abre una nueva terminal (CMD o PowerShell).
+
+Navega a tu directorio C:\municipalidad.
+
+Activa tu entorno virtual: .\venv\Scripts\Activate (o .\venv\Scripts\activate.bat si estás en CMD).
+
+Ejecuta el comando para probar el NLU:
+
+------------------------------------------------------------------------------
+ENTRENAR EL BOT:
+-------------------------------------------------------------------------------
+1-ENTRAR A C:\MUNICIPALIDAD
+2-INICIAR EL ENTORNO VIRTUAL
+			.\venv\Scripts\activate.bat
+3-EJERUCAR EL COMANDO  rasa train
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

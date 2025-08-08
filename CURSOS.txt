@@ -1,0 +1,41 @@
+Categoría: Ofimática
+Curso: Microsoft Word Básico | Precio: $50 | Link: https://tucurso.com/word-basico
+Curso: Excel Basico | Precio: $80 | Link: https://tucurso.com/excel-basico
+Curso: Excel Intermedio | Precio: $80 | Link: https://tucurso.com/excel-intermedio
+Curso: Excel Avanzado | Precio: $80 | Link: https://tucurso.com/excel-avanzado
+Curso: PowerPoint para Presentaciones | Precio: $65 | Link: https://tucurso.com/powerpoint
+
+Categoría: Programación
+Curso: Python Basico | Precio: $100 | Link: https://tucurso.com/python-basico
+Curso: Python Intermedio | Precio: $100 | Link: https://tucurso.com/python-intermedio
+Curso: Python Avanzado | Precio: $100 | Link: https://tucurso.com/python-avanzado
+Curso: Desarrollo Web con JavaScript | Precio: $150 | Link: https://tucurso.com/js-web
+Curso: Bases de Datos SQL | Precio: $100 | Link: https://tucurso.com/sql-db
+Curso: C# Basico | Precio: $100 | Link: https://tucurso.com/csharp-basico
+Curso: C# Intermedio | Precio: $100 | Link: https://tucurso.com/csharp-intermedio
+Curso: C# Avanzado | Precio: $100 | Link: https://tucurso.com/csharp-avanzado
+
+Categoría: Diseño Gráfico
+Curso: Photoshop Basico | Precio: $90 | Link: https://tucurso.com/photoshop-basico
+Curso: Illustrator | Precio: $95 | Link: https://tucurso.com/illustrator
+
+Categoría: Edición de video
+Curso: Adobe Premiere | Precio: $90 | Link: https://tucurso.com/premier
+Curso: After Effects | Precio: $90 | Link: https://tucurso.com/after-effects
+
+Categoría: Videojuegos
+Curso: Unity 2D | Precio: $90 | Link: https://tucurso.com/unity2d
+Curso: Unity 3D  | Precio: $90 | Link: https://tucurso.com/unity3d
+Curso: Godot Basico  | Precio: $90 | Link: https://tucurso.com/godot-basico
+Curso: Godot Avanzado  | Precio: $90 | Link: https://tucurso.com/godot-avanzado
+
+
+
+
+
+
+
+
+
+
+

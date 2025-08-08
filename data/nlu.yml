@@ -1,0 +1,296 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - hey
+    - buenos dias
+    - buenas tardes
+    - que onda
+    - que tal
+    - hola bot
+    - que hay
+    - saludos
+    - qué tal estás
+    - cómo andas
+    - holi
+    - hola, qué tal
+
+- intent: goodbye
+  examples: |
+    - adios
+    - chau
+    - nos vemos
+    - hasta luego
+    - me despido
+    - tengo que irme
+    - que te vaya bien
+    - hasta pronto
+    - bye
+    - me voy
+    - nos hablamos
+    - adiosito
+
+- intent: affirm
+  examples: |
+    - si
+    - si claro
+    - por supuesto
+    - correcto
+    - es verdad
+    - asi es
+    - ok
+    - vale
+    - de acuerdo
+    - afirmativo
+    - si quiero
+    - si por favor
+    - eso es
+    - exacto
+    - claro
+    - por supuesto que si
+    - si, eso es lo que busco
+
+- intent: deny
+  examples: |
+    - no
+    - no no
+    - para nada
+    - negativo
+    - no quiero
+    - no gracias
+    - no es cierto
+    - falso
+    - no lo creo
+    - de ninguna manera
+    - no, eso no es
+
+- intent: mood_great
+  examples: |
+    - me siento genial
+    - estoy bien
+    - excelente
+    - muy bien
+    - feliz
+    - contento
+    - super bien
+    - me siento feliz
+    - que bien
+    - genial
+    - increible
+    - todo perfecto
+    - todo en orden
+
+- intent: mood_unhappy
+  examples: |
+    - estoy triste
+    - no me siento bien
+    - mal
+    - estoy deprimido
+    - me siento mal
+    - no estoy bien
+    - estoy desanimado
+    - que mal
+    - no me va bien
+    - me siento terrible
+    - no estoy de humor
+
+- intent: bot_challenge
+  examples: |
+    - eres un bot
+    - eres un robot
+    - eres humano
+    - eres una persona
+    - eres real
+    - quien eres
+    - que eres tu
+    - quién eres?
+    - me puedes decir quién eres
+    - eres un programa
+    - dime que eres
+
+- intent: agradecer
+  examples: |
+    - gracias
+    - muchas gracias
+    - te lo agradezco
+    - gracias por la ayuda
+    - muy amable
+    - gracias bot
+    - te doy las gracias
+    - gracias por la info
+    - muchas gracias por la información
+    - gracias por tu ayuda
+    - te lo agradezco mucho
+    - gracias por la respuesta
+    - gracias, me sirvió
+
+- intent: consultar_categorias
+  examples: |
+    - ¿Qué categorías de cursos tienen?
+    - ¿Cuáles son las categorías?
+    - Dime las categorías de cursos.
+    - Muéstrame las categorías.
+    - ¿Qué tipos de cursos ofrecen?
+    - Nombra las categorías.
+    - Categorías
+    - Cursos por área
+    - Quiero ver las categorías de los cursos
+    - ¿Qué categorías de formación tienen?
+    - Dime las áreas de sus cursos
+    - Qué ramas de cursos hay?
+    - Lista de categorías de cursos
+    - Qué tipo de cursos tienen?
+
+- intent: consultar_cursos_por_categoria
+  examples: |
+    - qué cursos de [programación](categoria) tienen?
+    - qué cursos de [programación](categoria) hay?
+    - que cursos de [programación](categoria) me ofrecen?
+    - dame la lista de los cursos de [programación](categoria).
+    - que lenguajes de [programación](categoria) ofrecen
+    - Muéstrame los cursos de [programación](categoria)
+    - ¿Qué cursos hay de [ofimática](categoria)?
+    - Cursos de [diseño gráfico](categoria)
+    - ¿Qué ofrecen en [edición de video](categoria)?
+    - Lista los cursos de [videojuegos](categoria)
+    - Dime los cursos de [ofimática](categoria)
+    - ¿Hay cursos de [programación](categoria)?
+    - ¿Qué cursos tiene [ofimática](categoria)?
+    - ¿Cuáles son los cursos de [diseño gráfico](categoria)?
+    - Enséñame los cursos de [programación](categoria)
+    - dame los cursos de [ofimática](categoria)
+    - que cursos hay en la categoría [programación](categoria)
+    - ¿Puedes listar los cursos de la categoría [videojuegos](categoria)?
+    - Quiero ver lo que tienen de [videojuegos](categoria).
+    - ¿Qué cursos ofrecen para [videojuegos](categoria)?
+    - Muéstrame los cursos de [videojuegos](categoria).
+    - Dame la lista de cursos de [ofimática](categoria).
+    - Quiero saber sobre los cursos de [programación](categoria).
+    - ¿Qué cursos de [edición de video](categoria) tienen?
+    - Cursos de [Programacion](categoria)
+    - Qué cursos hay de [ofimatica](categoria)?
+    - Lista de cursos de [Diseño Gráfico](categoria).
+    - cursos de [diseño grafico](categoria)
+    - quiero ver cursos de [diseño grafico](categoria)
+    - qué cursos de [programación](categoria) imparten?
+    - qué cursos dan en la rama de [ofimática](categoria)?
+    - cursos de [diseño gráfico](categoria)
+    - ¿Qué cursos ofrecen para [edicion de video](categoria)?
+    - qué cursos ofrecen en la rama de [programación](categoria)?
+    - enséñame los cursos de [ofimática](categoria)
+    - qué cursos de [Python basico](nombre_curso) ofrecen?
+    - muéstrame los cursos de [Excel](nombre_curso).
+    - tienes cursos sobre [Unity 3D](nombre_curso)?
+    - quiero ver la lista de cursos de [Photoshop](nombre_curso).
+    - lista de cursos de [C#](nombre_curso)
+    - qué cursos tienen de [Word](nombre_curso)?
+    - qué cursos de [PowerPoint](nombre_curso) ofrecen?
+    - qué cursos tienen de [Godot](nombre_curso)?
+    - cursos de [JavaScript](nombre_curso)
+    - [SQL](nombre_curso)
+    - quiero saber sobre el curso de [Excel avanzado](nombre_curso)
+    - dame información sobre [Unity 2D](nombre_curso)
+    - [Python intermedio](nombre_curso)
+    - cursos de [Bases de datos SQL](nombre_curso)
+    - Tienen cursos de [Excel](nombre_curso)?
+    - ¿Qué cursos hay de [Python](nombre_curso)?
+    - ¿Qué cursos ofrecen de [C#](nombre_curso)?
+    - Muéstrame los cursos de [Illustrator](nombre_curso).
+    - Quiero saber sobre el curso de [SQL](nombre_curso).
+    - Tienes el curso de [Photoshop](nombre_curso)?
+    - Dame información sobre el curso de [Excel avanzado](nombre_curso).
+    - Me interesa el curso de [Godot](nombre_curso).
+    - Me puedes dar la lista de cursos de [Unity 2D](nombre_curso)?
+    - Tienen algo de [Python basico](nombre_curso)?
+    - ¿Qué cursos imparten de [Adobe Premiere](nombre_curso)?
+    - me puedes dar información de [Illustrator](nombre_curso)
+    - que cursos hay sobre [Word](nombre_curso)
+    - ¿Qué curso de [PowerPoint](nombre_curso) tienen?
+    - me das informacion sobre cursos de [premiere](nombre_curso)
+    - dan cursos de [Excel](nombre_curso)?
+    - Dan cursos de [Excel](nombre_curso)?
+    - Ofrecen cursos de [Python](nombre_curso)?
+    - ¿Hay cursos sobre [C#](nombre_curso)?
+    - ¿Qué tal los cursos de [Unity 3D](nombre_curso)?
+    - ¿Tienen algo de [Photoshop](nombre_curso)?
+    - Tienen un curso de [Word](nombre_curso)?
+    - Me interesan los cursos de [SQL](nombre_curso).
+    - ¿Ofrecen cursos de [Python intermedio](nombre_curso)?
+    - Me gustaría tomar un curso de [JavaScript](nombre_curso).
+    - ¿Qué hay de los cursos de [PowerPoint](nombre_curso)?
+    - Me puedes hablar sobre los cursos de [Bases de datos SQL](nombre_curso)?
+    - Tienen un curso de [Godot](nombre_curso)?
+
+
+- intent: consultar_precio_curso
+  examples: |
+    - ¿Cuánto cuesta el curso de [Excel Básico](nombre_curso)?
+    - Precio de [Python Avanzado](nombre_curso)
+    - ¿Cuál es el costo de [Illustrator](nombre_curso)?
+    - Dime el precio del curso de [Unity 2D](nombre_curso)
+    - Costo de [Microsoft Word Básico](nombre_curso)
+    - ¿Cuánto vale [C# Básico](nombre_curso)?
+    - Dame el precio de [Godot Básico](nombre_curso)
+    - Quiero saber el precio de [Adobe Premiere](nombre_curso)
+    - [Excel Intermedio](nombre_curso) precio
+    - [After Effects](nombre_curso) costo
+    - Precio del curso de [Photoshop Básico](nombre_curso)
+    - Costo del curso de [Unity 3D](nombre_curso)
+    - ¿Cuánto cuesta [Python Intermedio](nombre_curso)?
+    - El curso de [Godot Avanzado](nombre_curso) qué precio tiene?
+    - Precio de [Desarrollo Web con JavaScript](nombre_curso)
+    - Precios de [Unity 3D](nombre_curso)
+    - ¿Cuál es el valor del curso de [Bases de Datos SQL](nombre_curso)?
+    - ¿Cuánto tengo que pagar por el curso de [Excel Básico](nombre_curso)?
+    - El precio de [Godot Avanzado](nombre_curso) es?
+    - Quiero saber el costo de [Photoshop Básico](nombre_curso)
+    - ¿Cuál es el precio del curso de [Excel](nombre_curso)?
+    - ¿que vale el curso [Excel](nombre_curso)?
+    - ¿Cuánto cuesta el curso de [Python intermedio](nombre_curso)?
+    - Precio del curso de [diseño gráfico](categoria)
+    - Dime el costo de [Unity 3D](nombre_curso).
+    - Cuál es el valor del curso de [SQL](nombre_curso)?
+    - ¿Cuánto vale [Python basico](nombre_curso)?
+    - Precios de los cursos de [ofimática](categoria).
+    - Quiero saber el precio de [Word](nombre_curso).
+    - Dame el precio de [Godot avanzado](nombre_curso).
+    - ¿Qué precio tiene el curso de [C#](nombre_curso)?
+
+
+- intent: consultar_link_curso
+  examples: |
+    - ¿Cuál es el link del curso de [Excel Avanzado](nombre_curso)?
+    - Dame el enlace para [Photoshop Básico](nombre_curso)
+    - Quiero el link de [Desarrollo Web con JavaScript](nombre_curso)
+    - ¿Dónde me inscribo al curso de [Bases de Datos SQL](nombre_curso)?
+    - Enlace para [Microsoft Word Básico](nombre_curso)
+    - Link de [Unity 3D](nombre_curso)
+    - URL del curso [PowerPoint para Presentaciones](nombre_curso)
+    - [C# Avanzado](nombre_curso) link
+    - Enlace para el curso de [Adobe Premiere](nombre_curso)
+    - URL de [Python Avanzado](nombre_curso)
+    - Quiero el enlace de [Godot Avanzado](nombre_curso)
+    - Link del curso de [Excel Básico](nombre_curso)
+    - Enlace de [Python Básico](nombre_curso)
+    - ¿Dónde me puedo inscribir en el curso de [C# Básico](nombre_curso)?
+    - Quiero la URL para el curso de [Excel Intermedio](nombre_curso)
+
+- intent: consultar_info_curso
+  examples: |
+    - Háblame del curso de [Python Básico](nombre_curso)
+    - Dame información sobre [Excel Básico](nombre_curso)
+    - Detalles del curso de [Godot Avanzado](nombre_curso)
+    - Quiero saber sobre [Microsoft Word Básico](nombre_curso)
+    - Infórmame sobre [After Effects](nombre_curso)
+    - Cuéntame del curso de [Illustrator](nombre_curso)
+    - Dame los detalles de [Python Intermedio](nombre_curso)
+    - Me puedes hablar del curso de [Unity 2D](nombre_curso)
+    - ¿Qué me puedes decir del curso de [Photoshop Básico](nombre_curso)?
+    - ¿Hay más info sobre [Bases de Datos SQL](nombre_curso)?
+    - Quiero ver los cursos de [Python](nombre_curso) que dan
+    - dan lenguaje [Python avanzado](nombre_curso)?
+    - me das mas informacion del curso de [Excel Avanzado](nombre_curso)
+    - quisiera saber sobre el curso de [C# Intermedio](nombre_curso)
+    - me puedes dar los detalles del curso de [Adobe Premiere](nombre_curso)
+

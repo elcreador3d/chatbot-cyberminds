@@ -1,0 +1,91 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - agradecer
+  - consultar_categorias
+  - consultar_cursos_por_categoria
+  - consultar_precio_curso
+  - consultar_link_curso
+  - consultar_info_curso
+
+entities:
+  - categoria
+  - nombre_curso
+
+slots:
+  categoria:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: categoria
+  nombre_curso:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: nombre_curso
+
+responses:
+  utter_greet:
+  - text: "¡Hola! Soy tu asistente de Cyberminds. ¿En qué puedo ayudarte hoy con nuestros cursos de computación?"
+  - text: "Saludos. Estoy aquí para informarte sobre nuestros cursos. ¿Qué te interesa saber?"
+
+  utter_cheer_up:
+  - text: "Ánimo, estoy aquí para ayudarte."
+    image: "https://i.imgur.com/nGF1K8f.jpeg"
+
+  utter_did_that_help:
+  - text: "¿Te ayudó esto?"
+
+  utter_happy:
+  - text: "¡Me alegra!"
+
+  utter_goodbye:
+  - text: "¡Adiós! Que tengas un buen día."
+  - text: "Hasta pronto. ¡Espero verte de nuevo!"
+
+  utter_iamabot:
+  - text: "Soy un asistente virtual, aquí para informarte sobre los cursos de Cyberminds."
+
+  utter_ask_course_name:
+  - text: "¿De qué curso te gustaría saber el precio?"
+  - text: "¿Me podrías decir el nombre del curso?"
+
+  utter_ask_category_name:
+  - text: "¿De qué categoría de cursos te gustaría saber?"
+  - text: "¿Qué tipo de cursos buscas? (ej. programación, diseño gráfico)"
+
+  utter_no_course_found:
+  - text: "Lo siento, no encontré información sobre ese curso. ¿Estás seguro de que el nombre es correcto?"
+  - text: "No tengo detalles sobre '{nombre_curso}'. Por favor, verifica el nombre."
+
+  utter_no_category_found:
+  - text: "Lo siento, no encontré cursos en la categoría '{categoria}'. ¿Te refieres a otra?"
+  - text: "No tenemos cursos en la categoría '{categoria}'. Puedes preguntar por 'Ofimática', 'Programación', 'Diseño Gráfico', 'Edición de Video' o 'Videojuegos'."
+
+  utter_agradecimiento:
+  - text: "¡De nada! Estoy para servirte."
+  - text: "Con gusto. ¿Necesitas algo más?"
+  
+  utter_default:
+  - text: "Lo siento, no entendí tu pregunta. ¿Podrías reformularla o preguntarme sobre nuestras categorías de cursos?"
+  - text: "No estoy seguro de cómo responder a eso. Puedes preguntarme sobre 'categorías de cursos' o el 'precio/link de un curso'."
+  
+actions:
+  - action_consultar_categorias
+  - action_consultar_cursos_por_categoria
+  - action_consultar_precio_curso
+  - action_consultar_link_curso
+  - action_consultar_info_curso
+
+session_config:
+  session_expiration_time_in_minutes: 60
+  carry_over_slots_to_new_session: true

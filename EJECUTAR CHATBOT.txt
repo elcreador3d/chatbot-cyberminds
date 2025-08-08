@@ -1,0 +1,17 @@
+EJECUTAR CHATBOT
+
+1-ABRIR TERMINAL CON CMD
+	EJECUTAR AMBIENTE VIRTUAL CON	 
+		.\venv\Scripts\activate.bat
+	LUEGO EJECUTAR
+		rasa run actions
+
+2-ABRIR UNA SEGUNDA TERMINAL  Y EJECUTAR EL SERVIDOR CON
+	EJECUTAR AMBIENTE VIRTUAL CON	 
+		.\venv\Scripts\activate.bat
+	LUEGO EJECUTAR
+		rasa run -m models --enable-api --cors "*" --debug
+
+3-Cargar el bot en la pagina
+
+		file:///C:/mycibermids/web/index.HTML

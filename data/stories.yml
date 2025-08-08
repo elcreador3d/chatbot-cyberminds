@@ -1,0 +1,63 @@
+version: "3.1"
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: user asks for categories
+  steps:
+  - intent: consultar_categorias
+  - action: action_consultar_categorias # Nueva acción personalizada
+
+- story: user asks for courses by category
+  steps:
+  - intent: consultar_cursos_por_categoria
+  - action: action_consultar_cursos_por_categoria # Nueva acción personalizada
+
+- story: user asks for course price
+  steps:
+  - intent: consultar_precio_curso
+  - action: action_consultar_precio_curso # Nueva acción personalizada
+
+- story: user asks for course link
+  steps:
+  - intent: consultar_link_curso
+  - action: action_consultar_link_curso # Nueva acción personalizada
+
+- story: user asks for general course info (price & link)
+  steps:
+  - intent: consultar_info_curso
+  - action: action_consultar_info_curso # Nueva acción personalizada
+
+- story: user thanks
+  steps:
+  - intent: agradecer
+  - action: utter_agradecimiento

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Chatbot Municipal</title>
+    <style>
+        
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f2f5; /* Mantuve un color gris claro para el fondo */
+        /* Las siguientes 3 líneas deben ELIMINARSE si existen o asegurarse de que NO estén: */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* min-height: 100vh; */
+    }
+        
+.chat-container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 550px;
+
+        /* --- PROPIEDADES PARA POSICIONAMIENTO --- */
+        position: fixed; /* Esto lo fija en la ventana del navegador */
+        bottom: 20px;    /* 20px desde el borde inferior */
+        right: 20px;     /* 20px desde el borde derecho */
+        z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+        /* --- FIN DE PROPIEDADES --- */
+    }
+
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            cursor: pointer; /* Añade esto para indicar que se puede hacer clic */
+            display: flex; /* Para alinear el título y el botón */
+            justify-content: space-between; /* Espacio entre el título y el botón */
+            align-items: center; /* Centrar verticalmente */
+        }
+
+.minimize-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0 10px;
+    outline: none; /* Quitar el contorno al hacer clic */
+    transition: transform 0.2s ease-in-out;
+}
+
+.minimize-button:hover {
+    transform: scale(1.1); /* Efecto al pasar el mouse */
+}
+
+/* Estilos para cuando el chat está minimizado */
+.chat-container.minimized {
+    height: auto; /* La altura se ajusta al contenido (solo la cabecera) */
+    width: 250px; /* Un ancho más pequeño para el estado minimizado */
+    border-radius: 10px; /* Mantener bordes redondeados */
+}
+
+.chat-container.minimized .chat-messages,
+.chat-container.minimized .chat-input {
+    display: none; /* Oculta el cuerpo del chat y el input */
+}
+
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #e9ebee;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 80%;
+            word-wrap: break-word;
+            clear: both; /* Para asegurar que los mensajes floten correctamente */
+        }
+        .message.user {
+            background-color: #dcf8c6; /* Verde claro para mensajes del usuario */
+            float: right;
+            border-bottom-right-radius: 5px; /* Para la "colita" del mensaje */
+        }
+        .message.bot {
+            background-color: #f1f0f0; /* Gris claro para mensajes del bot */
+            float: left;
+            border-bottom-left-radius: 5px; /* Para la "colita" del mensaje */
+        }
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 25px;
+            margin-right: 10px;
+            outline: none;
+            font-size: 1em;
+        }
+        .chat-input button {
+            background-color: #28a745; /* Verde para el botón de enviar */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .chat-input button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header" id="chat-header">
+            <span>Cyberminds Chatbot</span> <button class="minimize-button" onclick="toggleChat()">&#x2212;</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+
+        // Función para añadir mensajes al chat
+        function appendMessage(sender, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender);
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Desplazar al último mensaje
+        }
+
+        // Función para enviar el mensaje del usuario al chatbot de Rasa
+        async function sendMessage() {
+            const userText = userInput.value.trim();
+            if (userText === "") return; // No enviar mensajes vacíos
+
+            appendMessage('user', userText); // Mostrar el mensaje del usuario
+            userInput.value = ''; // Limpiar el input
+
+            try {
+                const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        sender: 'user', // Identificador de la sesión del usuario (puedes usar un UUID aquí)
+                        message: userText
+                    })
+                });
+
+                const data = await response.json(); // La respuesta del chatbot
+                if (data && data.length > 0) {
+                    data.forEach(msg => {
+                        if (msg.text) {
+                            appendMessage('bot', msg.text); // Mostrar la respuesta del bot
+                        }
+                        // Aquí podrías añadir lógica para manejar otros tipos de respuestas de Rasa
+                        // como botones, imágenes, etc., si los configuraras en el futuro.
+                        // Ejemplo: if (msg.buttons) { /* crear botones */ }
+                    });
+                } else {
+                    appendMessage('bot', 'Lo siento, no pude entender tu pregunta. ¿Podrías reformularla?');
+                }
+            } catch (error) {
+                console.error('Error al comunicarse con el chatbot:', error);
+                appendMessage('bot', 'Hubo un error al conectar con el asistente. Por favor, inténtalo de nuevo más tarde.');
+            }
+        }
+
+        // Permite enviar mensajes presionando "Enter"
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        const chatContainer = document.querySelector('.chat-container');
+        const minimizeButton = document.querySelector('.minimize-button');
+
+        function toggleChat() {
+            chatContainer.classList.toggle('minimized'); // Alterna la clase 'minimized'
+
+            if (chatContainer.classList.contains('minimized')) {
+                minimizeButton.innerHTML = '&#x229E;'; // Cambia a símbolo de maximizar (cuadrado con flecha)
+                // También puedes cambiar el texto si lo prefieres, ej: minimizeButton.title = 'Maximizar chat';
+            } else {
+                minimizeButton.innerHTML = '&#x2212;'; // Vuelve al símbolo de menos
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Asegura que el scroll esté abajo
+                // minimizeButton.title = 'Minimizar chat';
+            }
+        }
+    </script>
+</body>
+</html>

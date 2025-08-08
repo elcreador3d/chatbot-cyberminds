@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-categoria",
+      "2": "I-categoria",
+      "3": "L-categoria",
+      "4": "U-categoria",
+      "5": "B-nombre_curso",
+      "6": "I-nombre_curso",
+      "7": "L-nombre_curso",
+      "8": "U-nombre_curso",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-categoria": 1,
+      "I-categoria": 2,
+      "L-categoria": 3,
+      "U-categoria": 4,
+      "B-nombre_curso": 5,
+      "I-nombre_curso": 6,
+      "L-nombre_curso": 7,
+      "U-nombre_curso": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

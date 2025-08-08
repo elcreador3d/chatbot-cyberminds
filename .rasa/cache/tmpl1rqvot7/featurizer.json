@@ -1,0 +1,72 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "agradecer": 1,
+        "back": 2,
+        "bot_challenge": 3,
+        "consultar_categorias": 4,
+        "consultar_cursos_por_categoria": 5,
+        "consultar_info_curso": 6,
+        "consultar_link_curso": 7,
+        "consultar_precio_curso": 8,
+        "deny": 9,
+        "goodbye": 10,
+        "greet": 11,
+        "mood_great": 12,
+        "mood_unhappy": 13,
+        "nlu_fallback": 14,
+        "out_of_scope": 15,
+        "restart": 16,
+        "session_start": 17
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_consultar_categorias": 13,
+        "action_consultar_cursos_por_categoria": 14,
+        "action_consultar_precio_curso": 15,
+        "action_consultar_link_curso": 16,
+        "action_consultar_info_curso": 17,
+        "utter_agradecimiento": 18,
+        "utter_ask_category_name": 19,
+        "utter_ask_course_name": 20,
+        "utter_cheer_up": 21,
+        "utter_default": 22,
+        "utter_did_that_help": 23,
+        "utter_goodbye": 24,
+        "utter_greet": 25,
+        "utter_happy": 26,
+        "utter_iamabot": 27,
+        "utter_no_category_found": 28,
+        "utter_no_course_found": 29
+      },
+      "entities": {
+        "categoria": 0,
+        "nombre_curso": 1
+      },
+      "slots": {
+        "categoria_0": 0,
+        "nombre_curso_0": 1
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}
