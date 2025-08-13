@@ -51,8 +51,8 @@ httptools==0.6.4
 huggingface-hub==0.33.5
 humanfriendly==10.0
 idna==3.10
-jax==0.4.30
-jaxlib==0.4.30
+jax
+jaxlib
 jmespath==1.0.1
 joblib==1.5.1
 jsonpickle==3.0.4
